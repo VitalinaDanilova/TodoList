@@ -1,0 +1,44 @@
+extends:
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+env:
+  browser: true
+  es2021: true
+  jest: true
+settings: {
+  react: {
+    createClass: "createReactClass",
+    pragma: "React",
+    fragment: "Fragment",
+    version: "detect",
+    flowVersion: 0.53
+  },
+  propWrapperFunctions: [
+    "forbidExtraProps", 
+    {"property": "freeze", "object": "Object"},
+    {"property": "myFavoriteWrapper"}
+  ],
+  componentWrapperFunctions: [
+    "observer",
+    {"property": "styled"},
+    {"property": "observer", "object": "Mobx"},
+    {"property": "observer", "object": "<pragma>"}
+  ],
+  linkComponents: [
+    "Hyperlink",
+    {"name": "Link", "linkAttribute": "to"}
+  ]
+}
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - react
+parser: "babel-eslint"
+rules:
+  no-console: 0
+  import/extensions: 0
+  no-await-in-loop: 0
+  quotes: [2, "single", { "avoidEscape": true }]
