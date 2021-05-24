@@ -10,7 +10,7 @@ export default class Container extends React.Component {
     }
     propTypes = {
         triggerText: PropTypes.string.isRequired,
-        onSubmit: PropTypes.object.isRequired,
+        handleSubmit: PropTypes.object.isRequired,
       };
     showModal = () => {
         this.setState({ isShown: true }, () => {
@@ -46,7 +46,7 @@ export default class Container extends React.Component {
                   />
                   {this.state.isShown ? (
                       <Modal
-                        onSubmit={this.props.onSubmit}
+                        handleSubmit={this.props.handleSubmit}
                         modalRef={(n) => (this.modal = n)}
                         buttonRef={(n) => (this.closeButton = n)}
                         closeModal={this.closeModal}

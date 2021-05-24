@@ -1,30 +1,15 @@
-import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { uniqueId } from 'lodash';
 
 
-class Item extends React.Component {
-  propTypes = {
-    task: PropTypes.string.isRequired,
-    onRemove: PropTypes.object.isRequired,
-  };
-   render() {
-      const { task, onRemove } = this.props;
-      return (
-        <div className="row">
-          <div>
-            <button type="button" className="btn btn-primary" onClick={onRemove}>-</button>
-          </div>
-          <div className="col-10">{task.text}</div>
-        </div>
-      );
-    }
-  }
- 
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '', tasks: [] };
+  }
+  propTypes = {
+    handleSubmit: PropTypes.object.isRequired,
   }
 
   handleRemove = (currentTaskId) => (e) => {
@@ -45,7 +30,7 @@ export default class TodoForm extends React.Component {
     this.setState({ value: '', tasks: [newTask, ...tasks] });
   }
 
-  renderForm = () => {
+  render() {
     const { value } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
@@ -65,22 +50,6 @@ export default class TodoForm extends React.Component {
           <button type="submit" className="form-control btn btn-primary">Add</button>
           </div>
       </form>
-    );
-  }
-
-  render() {
-    const { tasks } = this.state;
-    return (
-      <div>
-        <div className="mb-3"></div>
-          {this.renderForm()}
-        {tasks.map((task) => (
-          <div key={task.id}>
-            <Item task={task} onRemove={this.handleRemove(task.id)} />
-            <hr />
-          </div>
-        ))}
-      </div>
     );
   }
 }
