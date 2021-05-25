@@ -1,16 +1,15 @@
 import React from 'react';
-import { Modal } from '../Modal';
+import { Modal } from './Modal';
 import PropTypes from 'prop-types';
-import TriggerButton from '../TriggerButton';
+import TriggerButton from './TriggerButton';
 
 export default class Container extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isShown: false };
     }
-    propTypes = {
+    static propTypes = {
         triggerText: PropTypes.string.isRequired,
-        handleSubmit: PropTypes.object.isRequired,
       };
     showModal = () => {
         this.setState({ isShown: true }, () => {
@@ -46,7 +45,6 @@ export default class Container extends React.Component {
                   />
                   {this.state.isShown ? (
                       <Modal
-                        handleSubmit={this.props.handleSubmit}
                         modalRef={(n) => (this.modal = n)}
                         buttonRef={(n) => (this.closeButton = n)}
                         closeModal={this.closeModal}

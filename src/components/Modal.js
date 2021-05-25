@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoForm from '../TodoForm';
+import TodoForm from './TodoForm';
 import FocusTrap from 'focus-trap-react';
 
 export const Modal = ({

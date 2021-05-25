@@ -1,26 +1,11 @@
 import React from 'react';
 import './App.css';
-import Container from './Container';
-import TodoBox from './TodoBox';
-import PropTypes from 'prop-types';
+import Container from './components/Container';
+import TodoBox from './components/TodoBox';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { triggerText: 'Create a task' };
-  }
-  propTypes = {
-    triggerText: PropTypes.string.isRequired,
-    handleSubmit: PropTypes.object.isRequired,
-  };
-
-addTodo() {
-  
-}
-  render() {
-    const { triggerText } = this.state;
-    const { handleSubmit } = this.props;
-    return (
+const App = () => {
+  const triggerText = 'Create a task';
+  return (
     <div className="App">
       <header className="App-header">
         <h1>ToDo List</h1>
@@ -31,13 +16,14 @@ addTodo() {
         <span className="categories">Categories</span>
         </div>
         <div>
-        <Container triggerText={triggerText} onSubmit={handleSubmit} />
+        <Container triggerText={triggerText}/>
         </div>
       </header>
       <div id="container" className="container">
-        <TodoBox tasks={[]}/>
+        <TodoBox />
       </div>
     </div>
-  );
+    );
   }
-}
+
+  export default App;

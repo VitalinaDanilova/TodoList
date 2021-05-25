@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class TriggerButton extends React.Component {
-    propTypes = {
+    static propTypes = {
         triggerText: PropTypes.string.isRequired,
-        buttonRef: PropTypes.string.isRequired,
-        showModal: PropTypes.object.isRequired,
+        buttonRef: PropTypes.func.isRequired,
+        showModal: PropTypes.func.isRequired,
     };
     render() {
         const { triggerText, buttonRef, showModal } = this.props;

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #dde9fc;
 }
 
 .App-logo {
@@ -147,12 +148,12 @@ form {
 }
 
 .modal_close_icon {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 30px;
   fill: transparent;
-  stroke: black;
+  stroke: #0b56b3;
   stroke-linecap: round;
-  stroke-width: 2;
+  stroke-width: 4;
 }
 
 .modal-body {
@@ -197,7 +198,26 @@ div.task {
   text-align: left;
 }
 
+.container {
+  background-color: #dde9fc;
+}
+
 .container a {
   color: black;
   text-decoration: none;
+}
+
+hr {
+  border: none;
+  color: #357cb6;
+  background-color: #357cb6;
+  height: 1.8px; 
+}
+
+.todo-item {
+  list-style-type: none;
+  padding: 17px 0 10px 10px;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Gotham SSm A", -apple-system, sans-serif;
 }
