@@ -12,7 +12,7 @@ class MyContext extends React.Component {
         children: PropTypes.object.isRequired,
     }
     state = {
-        tasks: []
+        tasks: [],
     }
     handleChange = (id) => {
       this.setState({
@@ -25,11 +25,18 @@ class MyContext extends React.Component {
       });
     };
 
-    onChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value,
-        });
+
+    /* addActive = (currentId) => (e) => {
+      e.preventDefault();
+      console.log('boom!')
+      const { tasks } = this.state;
+      tasks.forEach((task) => {
+        if (task.id === currentId) {
+          task.active = !task.active;
+        }
+      });
     };
+    */
   
     handleRemove = (currentId) => (e) => {
         e.preventDefault();
@@ -42,7 +49,6 @@ class MyContext extends React.Component {
         const newTask = {
         id: _.uniqueId(),
         title: title,
-        active: false,
       };
       this.setState({ tasks: [newTask, ...tasks] });
     };
@@ -61,6 +67,7 @@ class MyContext extends React.Component {
                 handleChange: this.handleChange,
                 handleRemove: this.handleRemove,
                 addTodoItem: this.addTodoItem,
+                addActive: this.addActive,
             }}
             >
                 {this.props.children}

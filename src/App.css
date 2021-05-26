@@ -177,32 +177,41 @@ form {
   margin-right: 17px;
 }
 
-div.task.active {
+.todo_item {
   position: relative;
   cursor: pointer;
-  padding: 12px 8px 12px 40px;
-  background: #9bc7eb;
-  border-bottom: 2px solid #357cb6;
-  text-decoration: none;
+  list-style-type: none;
+  padding: 17px 0 10px 10px;
+  border-bottom: 3px solid #60a5dd;
+  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-weight: bold;
   font-size: 18px;
   text-align: left;
 }
 
-div.task {
+.todo_item.active {
   position: relative;
   cursor: pointer;
-  padding: 12px 8px 12px 40px;
-  background: white;
-  border-bottom: 2px solid #357cb6;
+  list-style-type: none;
+  padding: 17px 0 10px 10px;
+  background-color: #7cb2df;
+  color: black;
+  border-bottom: 3px solid #60a5dd;
+  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-weight: bold;
   font-size: 18px;
   text-align: left;
+}
+
+.item {
+  padding: 0 20px;
 }
 
 .container {
   background-color: #dde9fc;
 }
 
-.container a {
+span.todo_item {
   color: black;
   text-decoration: none;
 }
@@ -212,12 +221,4 @@ hr {
   color: #357cb6;
   background-color: #357cb6;
   height: 1.8px; 
-}
-
-.todo-item {
-  list-style-type: none;
-  padding: 17px 0 10px 10px;
-  font-weight: bold;
-  text-align: left;
-  font-family: "Gotham SSm A", -apple-system, sans-serif;
 }
