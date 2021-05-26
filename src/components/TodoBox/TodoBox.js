@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { TodosContext, TodosConsumer } from '../context';
+import { TodosContext, TodosConsumer } from '../../context';
 
 const Item = (props) => {
   const { id, title } = props.task;

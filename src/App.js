@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Container from './components/Container';
-import TodoBox from './components/TodoBox';
+import { Container } from './components/index.js';
+import { TodoBox } from './components/index.js';
 
 const App = () => {
   const triggerText = 'Create a task';

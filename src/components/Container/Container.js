@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal } from './Modal';
+import { Modal } from '../index.js';
 import PropTypes from 'prop-types';
-import TriggerButton from './TriggerButton';
+import { TriggerButton } from '../index.js';
 
 export default class Container extends React.Component {
     constructor(props) {
