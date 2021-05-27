@@ -1,54 +1,22 @@
-/* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import { TodosContext, TodosConsumer } from '../../context';
+import React, { useContext } from 'react';
+import { TodosContext } from '../../contexts/context.js';
+import { Item } from '../index.js';
+import _ from 'lodash';
 
-const Item = (props) => {
-  const { id, title } = props.task;
-  const [isActive, setActive] = useState(false);
-
-  const handleToggle = () => {
-    setActive(!isActive);
-  }
-
-  return (
-    <TodosConsumer>
-      {(value) => {
-        const { handleRemove } = value;
-        return (
-        <div className={`todo_item ${isActive ? 'active' : ''}`}>
-          <div className="task">
-          <li>
-            <div>
-              <button type="button" className="btn btn-primary" onClick={handleToggle}>Edit</button>
-           </div>
-           <div>
-             <button type="button" className="btn btn-primary" onClick={handleRemove(id)}>Delete</button>
-          </div>
-          <span>{title}</span>
-          </li>
-         </div>
-        </div>
-       )
-      }}
-    </TodosConsumer>
-    );
-  }
-
-export default class TodoBox extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    static contextType = TodosContext;
-
-    render() {
-      const value = this.context;
+const TodoBox = () => {
+  const value = useContext(TodosContext);
+    // const { isActive } = this.state;
+    // Item onClick={openEditor};
       return (
       <div className="item">
-      {value.tasks.map((task) => (
-        <Item key={task.id} task={task} />
-      ))}
-    </div>
+        {value.tasks.map((task) => (
+        <React.Fragment key={_.uniqueId()}>
+          <div className="todo_item">
+            <Item key={task.id} task={task} />
+            </div>
+        </React.Fragment>))}
+      </div>
     );
   }
-}
+
+  export default TodoBox;

@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { TodoForm } from '../index.js';
+import { Close } from '../../assets/icons/index.js';
 import FocusTrap from 'focus-trap-react';
 
-export const Modal = ({
+const Modal = ({
     onClickOutside,
     onKeyDown,
     modalRef,
     buttonRef,
     closeModal,
-    handleSubmit,
+    onChange,
+    onSubmit,
 }) => {
     return ReactDOM.createPortal(
         <FocusTrap>
@@ -31,12 +33,10 @@ export const Modal = ({
                   onClick={closeModal}
                   >
                     <span id="close-modal" className="_hide-visual">Close</span>
-                    <svg className="modal_close_icon" viewBox="0 0 40 40">
-                      <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
-                    </svg>
+                    <Close />
                   </button>
                   <div className="modal-body">
-                      <TodoForm onSubmit={handleSubmit} />
+                      <TodoForm onChange={onChange} onSubmit={onSubmit} />
                   </div>
               </div>
             </aside>

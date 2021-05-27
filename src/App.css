@@ -2,6 +2,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: #dde9fc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .App-logo {
@@ -18,10 +23,11 @@ body {
   box-shadow: 0 4px 2px -2px gray;
 }
 
-.sticky {          /* for scroll with fixed header */
+.sticky {
+  /* for scroll with fixed header */
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
 }
 
 header > h1 {
@@ -105,13 +111,14 @@ form {
   display: block;
   width: 100%;
   font-size: 1rem;
+  padding: 5px 0 2px 2px;
   line-height: 2.5;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn:not(:disabled):not(.disabled) {
@@ -121,7 +128,13 @@ form {
 .btn-primary {
   color: #fff;
   background-color: #245a94;
+}
+
+.btn-icon {
+  cursor: pointer;
   float: right;
+  border: none;
+  background-color: #dde9fc;
 }
 
 @media screen and (min-width: 500px) {
@@ -132,6 +145,7 @@ form {
     transform: translate(-50%, -50%);
     max-width: 30em;
     max-height: calc(100% - 1em);
+    border-radius: 0.25rem;
   }
 }
 
@@ -220,5 +234,5 @@ hr {
   border: none;
   color: #357cb6;
   background-color: #357cb6;
-  height: 1.8px; 
+  height: 1.8px;
 }

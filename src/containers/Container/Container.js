@@ -1,16 +1,32 @@
 import React from 'react';
-import { Modal } from '../index.js';
+import { Modal, TriggerButton } from '../../components/index.js';
 import PropTypes from 'prop-types';
-import { TriggerButton } from '../index.js';
+import { TodosContext } from '../../contexts/context.js'
 
 export default class Container extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isShown: false };
+        this.state = { isShown: false, title: '' };
     }
     static propTypes = {
         triggerText: PropTypes.string.isRequired,
       };
+
+      static contextType = TodosContext;
+
+    onChange = (e) => {
+          e.preventDefault();
+          this.setState({ title: e.target.value });
+    };
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        const value = this.context;
+        const { addTodoItem } = value;
+        addTodoItem(this.state.title)
+        this.setState({ title: '' });
+    };
+
     showModal = () => {
         this.setState({ isShown: true }, () => {
             this.closeButton.focus();
@@ -38,6 +54,7 @@ export default class Container extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <div>
                 <TriggerButton
                   showModal={this.showModal}
                   buttonRef={(n) => (this.TriggerButton = n)}
@@ -50,8 +67,11 @@ export default class Container extends React.Component {
                         closeModal={this.closeModal}
                         onKeyDown={this.onKeyDown}
                         onClickOutside={this.onClickOutside}
+                        onChange={this.onChange}
+                        onSubmit={this.onSubmit}
                         />
                   ) : null}
+                </div>
             </React.Fragment>
         );
     }

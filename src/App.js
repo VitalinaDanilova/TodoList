@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Container } from './components/index.js';
+import { Container } from './containers/Container/index.js';
 import { TodoBox } from './components/index.js';
 
 const App = () => {

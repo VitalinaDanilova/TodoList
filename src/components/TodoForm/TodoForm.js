@@ -1,38 +1,24 @@
-import React, { useState, useContext } from 'react';
-import { TodosContext } from '../../context';
+import React from 'react';
+import PropTypes from 'prop-types';
 
+const TodoForm = ({
+  onChange,
+  onSubmit,
+}) => {
 
-const TodoForm = () => {
-  const value = useContext(TodosContext);
-  const { addTodoItem } = value;
+  TodoForm.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+  }
 
-  const [inputText, setInputText] = useState({
-    title: '',
-  })
-
-  const onChange = (e) => {
-    setInputText({
-      ...inputText,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addTodoItem(inputText.title)
-    setInputText({
-      title: '',
-    });
-  };
-  
   return (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={onSubmit}>
     <div className="form-group">
       <label htmlFor="text"><strong>Create a task</strong></label>
       <input
         type="text"
+        title=''
         onChange={onChange}
-        value={inputText.title}
         required
         className="form-control"
         id="text"

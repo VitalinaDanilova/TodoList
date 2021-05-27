@@ -14,6 +14,7 @@ class MyContext extends React.Component {
     state = {
         tasks: [],
     }
+
     handleRemove = (currentId) => (e) => {
         e.preventDefault();
         const { tasks } = this.state;
@@ -28,6 +29,12 @@ class MyContext extends React.Component {
       };
       this.setState({ tasks: [newTask, ...tasks] });
     };
+
+    /* openEditor = () => {
+      some logic here {...}
+      this.setState({ isActive: !this.state.isActive });
+    }
+    */
 
     render() {
         return (
