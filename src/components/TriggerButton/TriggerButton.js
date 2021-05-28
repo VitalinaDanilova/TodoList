@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TriggerButton = ({triggerText, buttonRef, showModal}) => {
-    TriggerButton.propTypes = {
-        triggerText: PropTypes.string.isRequired,
-        buttonRef: PropTypes.func.isRequired,
-        showModal: PropTypes.func.isRequired,
-    };
-    return (
-      <button
-      className="btn modal-button"
-      ref={buttonRef}
-      onClick={showModal}
-      >
+const TriggerButton = ({ triggerRef, showModal, triggerText }) => {
+  return (
+    <button className="btn modal-button" ref={triggerRef} onClick={showModal}>
       {triggerText}
-      </button>
-      );
-    };
+    </button>
+  );
+};
+
+TriggerButton.propTypes = {
+  triggerText: PropTypes.string.isRequired,
+  triggerRef: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired,
+};
 
 export default TriggerButton;
