@@ -5,14 +5,17 @@ import _ from 'lodash';
 
 const TodoBox = () => {
   const value = useContext(TodosContext);
-  // const { isActive } = this.state;
-  // Item onClick={openEditor};
+  const { handleRemove } = value;
   return (
     <div className="item">
       {value.tasks.map((task) => (
         <React.Fragment key={_.uniqueId()}>
           <div className="todo_item">
-            <ItemComponent key={task.id} title={task} />
+            <ItemComponent
+              key={task.id}
+              title={task.title}
+              handleRemove={handleRemove(task.id)}
+            />
           </div>
         </React.Fragment>
       ))}

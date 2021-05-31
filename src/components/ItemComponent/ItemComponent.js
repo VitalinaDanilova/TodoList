@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Edit, Trash } from '../../assets/icons/index.js';
 
-const ItemComponent = ({ id, title, openEditor, handleRemove }) => {
+const ItemComponent = ({ title, handleRemove }) => {
   return (
     <div className="task">
       <li>
         <div>
-          <button type="button" className="btn-icon" onClick={handleRemove(id)}>
+          <button type="button" className="btn-icon" onClick={handleRemove}>
             <Trash />
           </button>
         </div>
         <div>
-          <button type="button" className="btn-icon" onClick={openEditor}>
+          <button type="button" className="btn-icon">
             <Edit />
           </button>
         </div>
@@ -23,9 +23,7 @@ const ItemComponent = ({ id, title, openEditor, handleRemove }) => {
 };
 
 ItemComponent.propTypes = {
-  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  openEditor: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired,
 };
 

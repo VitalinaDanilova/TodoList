@@ -1,27 +1,22 @@
+/*
 import React from 'react';
 import { TodosConsumer } from '../../contexts/context';
 import { ItemComponent } from '../../components';
 import PropTypes from 'prop-types';
 
-const ItemContainer = ({ task: { id, title, openEditor } }) => {
+const ItemContainer = () => {
   return (
     <TodosConsumer>
       {({ handleRemove }) => {
-        return (
-          <ItemComponent
-            id={id}
-            title={title}
-            openEditor={openEditor}
-            handleRemove={handleRemove}
-          />
-        );
+        return <ItemComponent handleRemove={handleRemove} />;
       }}
     </TodosConsumer>
   );
 };
 
 ItemContainer.propTypes = {
-  task: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
 };
 
 export default ItemContainer;
+*/

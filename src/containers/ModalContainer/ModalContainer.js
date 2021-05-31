@@ -12,6 +12,7 @@ export default class ModalContainer extends React.Component {
 
   onChange = (e) => {
     e.preventDefault();
+    console.log('handler change');
     this.setState({ title: e.target.value });
   };
   onSubmit = (e) => {
@@ -19,24 +20,22 @@ export default class ModalContainer extends React.Component {
     const value = this.context;
     const { addTodoItem } = value;
     addTodoItem(this.state.title);
+    console.log('handler submit', this.state.title);
     this.setState({ title: '' });
   };
   showModal = () => {
+    console.log('open!');
     this.setState({ isShown: true }, () => {
       this.closeButton.focus();
     });
     this.toggleScrollLock();
   };
   closeModal = () => {
-    console.log('it closed');
+    console.log('close!');
     this.setState({ isShown: false });
     this.TriggerButton.focus();
     this.toggleScrollLock();
   };
-
-  buttonRef = (n) => (this.modal = n);
-  modalRef = (n) => (this.closeButton = n);
-  triggerRef = (n) => (this.TriggerButton = n);
 
   onKeyDown = (e) => {
     if (e.keyCode === 27) {
@@ -44,6 +43,7 @@ export default class ModalContainer extends React.Component {
     }
   };
   onClickOutside = (e) => {
+    console.log('click outside');
     if (this.modal && this.modal.contains(e.target)) return;
     this.closeModal();
   };
@@ -56,9 +56,9 @@ export default class ModalContainer extends React.Component {
       <ModalComponent
         isShown={this.state.isShown}
         triggerText={this.state.triggerText}
-        buttonRef={this.buttonRef}
-        modalRef={this.modalRef}
-        triggerRef={this.triggerRef}
+        buttonRef={(n) => (this.closeButton = n)}
+        modalRef={(n) => (this.modal = n)}
+        triggerRef={(n) => (this.TriggerButton = n)}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
         showModal={this.showModal}
