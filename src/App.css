@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #dde9fc;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,7 +44,7 @@ header > h1 {
   cursor: pointer;
   padding: 35px 0 25px 25px;
   font-size: large;
-  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-family: 'Gotham SSm A', -apple-system, sans-serif;
   color: white;
   text-align: left;
   float: left;
@@ -93,7 +93,7 @@ header > h1 {
 label {
   display: inline-block;
   margin-bottom: 2rem;
-  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-family: 'Gotham SSm A', -apple-system, sans-serif;
   font-size: larger;
   color: #225b97;
 }
@@ -135,6 +135,7 @@ form {
   cursor: pointer;
   float: right;
   border: none;
+  color: #0f509b;
   background-color: #dde9fc;
 }
 
@@ -198,7 +199,7 @@ form {
   list-style-type: none;
   padding: 17px 0 10px 10px;
   border-bottom: 3px solid #60a5dd;
-  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-family: 'Gotham SSm A', -apple-system, sans-serif;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
@@ -212,7 +213,7 @@ form {
   background-color: #7cb2df;
   color: black;
   border-bottom: 3px solid #60a5dd;
-  font-family: "Gotham SSm A", -apple-system, sans-serif;
+  font-family: 'Gotham SSm A', -apple-system, sans-serif;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
@@ -236,4 +237,39 @@ hr {
   color: #357cb6;
   background-color: #357cb6;
   height: 1.8px;
+}
+
+.confirm {
+  display: none;
+}
+
+.confirm-active {
+  display: block;
+}
+
+.modal-card-foot {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top: 1px solid;
+}
+
+.button-delete {
+  background-color: #225b97;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button-cancel {
+  background-color: white;
+  border-color: #155fff;
+  border-width: 1px;
+  color: #326fb4;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.375em - 1px);
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  text-align: center;
+  white-space: nowrap;
 }

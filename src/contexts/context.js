@@ -13,12 +13,7 @@ class MyContext extends React.Component {
   };
   state = {
     tasks: [],
-  };
-
-  handleRemove = (currentId) => (e) => {
-    e.preventDefault();
-    const { tasks } = this.state;
-    this.setState({ tasks: tasks.filter(({ id }) => id !== currentId) });
+    isShown: false,
   };
 
   addTodoItem = (title) => {
@@ -30,19 +25,18 @@ class MyContext extends React.Component {
     this.setState({ tasks: [newTask, ...tasks] });
   };
 
-  /*
-    openEditor = () => {
-      some logic here {...}
-      this.setState({ isActive: !this.state.isActive });
-    }
-  */
+  removeTodoItem = (taskId) => {
+    this.setState({
+      tasks: this.state.tasks.filter(({ id }) => id !== taskId),
+    });
+  };
 
   render() {
     return (
       <TodosProvider
         value={{
           ...this.state,
-          handleRemove: this.handleRemove,
+          removeTodoItem: this.removeTodoItem,
           addTodoItem: this.addTodoItem,
         }}
       >
