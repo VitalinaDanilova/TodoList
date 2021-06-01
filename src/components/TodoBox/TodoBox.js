@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
-import { TodosContext } from '../../contexts/context.js';
+import React from 'react';
 import { ItemComponent } from '../index.js';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-const TodoBox = () => {
-  const value = useContext(TodosContext);
-  const { handleRemove } = value;
+const TodoBox = ({ tasks, handleRemove }) => {
   return (
     <div className="item">
-      {value.tasks.map((task) => (
+      {tasks.map((task) => (
         <React.Fragment key={_.uniqueId()}>
           <div className="todo_item">
             <ItemComponent
@@ -21,6 +19,11 @@ const TodoBox = () => {
       ))}
     </div>
   );
+};
+
+TodoBox.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  handleRemove: PropTypes.func.isRequired,
 };
 
 export default TodoBox;

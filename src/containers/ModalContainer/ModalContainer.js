@@ -12,7 +12,7 @@ export default class ModalContainer extends React.Component {
 
   onChange = (e) => {
     e.preventDefault();
-    console.log('handler change');
+
     this.setState({ title: e.target.value });
   };
   onSubmit = (e) => {
@@ -20,18 +20,15 @@ export default class ModalContainer extends React.Component {
     const value = this.context;
     const { addTodoItem } = value;
     addTodoItem(this.state.title);
-    console.log('handler submit', this.state.title);
     this.setState({ title: '' });
   };
   showModal = () => {
-    console.log('open!');
     this.setState({ isShown: true }, () => {
       this.closeButton.focus();
     });
     this.toggleScrollLock();
   };
   closeModal = () => {
-    console.log('close!');
     this.setState({ isShown: false });
     this.TriggerButton.focus();
     this.toggleScrollLock();
@@ -43,7 +40,6 @@ export default class ModalContainer extends React.Component {
     }
   };
   onClickOutside = (e) => {
-    console.log('click outside');
     if (this.modal && this.modal.contains(e.target)) return;
     this.closeModal();
   };

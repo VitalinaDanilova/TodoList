@@ -17,7 +17,6 @@ class MyContext extends React.Component {
 
   handleRemove = (currentId) => (e) => {
     e.preventDefault();
-    console.log('its removed!');
     const { tasks } = this.state;
     this.setState({ tasks: tasks.filter(({ id }) => id !== currentId) });
   };

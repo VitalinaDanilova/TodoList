@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { ModalContainer } from './containers/ModalContainer/index.js';
-import { TodoBox } from './components/index.js';
+import { ItemContainer } from './containers';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         </div>
       </header>
       <div id="container" className="container">
-        <TodoBox />
+        <ItemContainer />
       </div>
     </div>
   );

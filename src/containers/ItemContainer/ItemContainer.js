@@ -1,22 +1,20 @@
-/*
 import React from 'react';
 import { TodosConsumer } from '../../contexts/context';
-import { ItemComponent } from '../../components';
+import { TodoBox } from '../../components';
 import PropTypes from 'prop-types';
 
 const ItemContainer = () => {
   return (
     <TodosConsumer>
-      {({ handleRemove }) => {
-        return <ItemComponent handleRemove={handleRemove} />;
+      {({ tasks, handleRemove }) => {
+        return <TodoBox tasks={tasks} handleRemove={handleRemove} />;
       }}
     </TodosConsumer>
   );
 };
 
 ItemContainer.propTypes = {
-  task: PropTypes.object.isRequired,
+  tasks: PropTypes.array,
 };
 
 export default ItemContainer;
-*/
